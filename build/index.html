@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>SoftRasterizer Demo</title>
+    <script src="require.js" data-main="main"></script>
+</head>
+
+<body>
+    <canvas id="glcanvas" width="800" height="800" style="background-color: black;">
+        Do not support canvas!
+    </canvas>
+    <a id="link"></a>
+    <button id="savebtn">Save</button>
+</body>
+
+<script>
+    document.getElementById("savebtn").onclick = function () {
+        var img = document.getElementById("glcanvas").toDataURL();
+        var link = document.getElementById("link");
+        link.download = "test.png";
+        link.href = img.replace("image/png", "image/octet-stream");
+        link.click();
+    }
+</script>
+
+</html>
